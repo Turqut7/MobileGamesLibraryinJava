@@ -17,7 +17,7 @@ public class App {
             System.out.println("4. Display all games");
             System.out.println("5. Exit");
 
-            int option = scanner.nextInt();
+            int option = getUserOption(scanner);
             scanner.nextLine();
 
             switch (option) {
@@ -91,5 +91,27 @@ public class App {
                     System.out.println("Invalid option. Please try again.");
             }
         }
+    }
+
+    private static int getUserOption(Scanner scanner) {
+        int option = -1;
+        boolean validInput = false;
+
+        while (!validInput) {
+            if (scanner.hasNextInt()) {
+                option = scanner.nextInt();
+                if (option >= 1 && option <= 5) {
+                    validInput = true;
+                } else {
+                    System.out.println("Invalid option. Please enter a number between 1 and 5.");
+                }
+            } else {
+                System.out.println("Invalid input. Please enter a number between 1 and 5.");
+                scanner.next();
+            }
+            scanner.nextLine();
+        }
+
+        return option;
     }
 }
