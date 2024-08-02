@@ -109,7 +109,6 @@ public class App {
                 System.out.println("Invalid input. Please enter a number between 1 and 5.");
                 scanner.next();
             }
-            scanner.nextLine();
         }
 
         return option;
